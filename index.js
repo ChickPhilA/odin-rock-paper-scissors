@@ -19,6 +19,6 @@ function getHumanChoice() {
     }
     else {
         alert("Invalid choice. Please try again.")
-        getHuamnChoice()
+        getHumanChoice()
     }
 }
