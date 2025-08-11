@@ -12,6 +12,13 @@ function getComputerChoice() {
     }
 }
 
-// function getHumanChoice() {
-
-// }
+function getHumanChoice() {
+    let choice = prompt("Enter your choice: 'rock', 'paper', or 'scissors'?")
+    if(choice == 'rock' || choice == 'paper' || choice == 'scissors') {
+        return choice
+    }
+    else {
+        alert("Invalid choice. Please try again.")
+        getHuamnChoice()
+    }
+}
