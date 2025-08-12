@@ -1,6 +1,3 @@
-let humanScore = 0
-let computerScore = 0
-
 function getComputerChoice() {
     let randomVal = Math.floor((Math.random() * 3) + 1)  // chooses a random, WHOLE NUMBER inclusive from 1 to 3
 
@@ -27,7 +24,7 @@ function getHumanChoice() {
     }
 }
 
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice, humanScore, computerScore) {
     // we start comparing the values here
 
     if(humanChoice == "rock") {
@@ -71,7 +68,31 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-let humanChoice = getHumanChoice()
-let computerChoice = getComputerChoice()
+function playGame() {
+    let humanScore = 0
+    let computerScore = 0
 
-playRound(humanChoice, computerChoice)
+    // initialize the choices as null first
+    let humanChoice = null
+    let computerChoice = null
+
+    for(let i = 0; i < 5; i++) {
+        humanChoice = getHumanChoice()
+        computerChoice = getComputerChoice()
+        playRound(humanChoice, computerChoice, humanScore, computerScore) // passing the score variables to increment them in other functions
+    }
+
+    // after the 5 games have been played
+    if(humanScore > computerScore) {
+        alert(`Congratulations! You win the game with a score of ${humanScore} to ${computerScore}.`)
+    }
+    else if(computerScore > humanScore) {
+        alert(`You lose the game! The computer wins with a score of ${computerScore} to ${humanScore}.`)
+    }
+    else {
+        alert(`It's a tie! Both you and the computer scored ${humanScore}.`)
+    }
+}  
+
+
+playGame()
