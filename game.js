@@ -29,41 +29,39 @@ function playRound(humanChoice, computerChoice, humanScore, computerScore) {
 
     if(humanChoice == "rock") {
         if(computerChoice == "scissors") {
-            humanScore++
-            return "You win! Rock crushes scissors."
+            return "win"
         }
         else if(computerChoice == "paper") {
-            computerScore++
-            return "You lose! Paper covers rock."
+            return "lose"
         }
         else{
-            return "It's a tie! Both chose rock."
+            return "tie"
         }
     }
     else if(humanChoice == "paper") {
         if(computerChoice == "scissors") {
             computerScore++
-            return "You lose! Scissors cuts paper."
+            return "lose"
         }
         else if(computerChoice == "paper") {
-            return "It's a tie! Both chose paper."
+            return "tie"
         }
         else {
             humanScore++
-            return "You win! Paper covers rock."
+            return "win"
         }
     }
     else {
         if(computerChoice == "rock") {
             computerScore++
-            return "You lose! Rock crushes scissors."
+            return "lose"
         }
         else if(computerChoice == "paper") {
             humanScore++
-            return "You win! Scissors cuts paper."
+            return "win"
         }
         else {
-            return "It's a tie! Both chose scissors."
+            return "tie"
         }
     }
 }
@@ -75,11 +73,25 @@ function playGame() {
     // initialize the choices as null first
     let humanChoice = null
     let computerChoice = null
+    let result = null
 
+    alert("Welcome to Rock, Paper, Scissors! You will play 5 rounds against the computer. Good luck!")
     for(let i = 0; i < 5; i++) {
         humanChoice = getHumanChoice()
         computerChoice = getComputerChoice()
-        playRound(humanChoice, computerChoice, humanScore, computerScore) // passing the score variables to increment them in other functions
+        result = playRound(humanChoice, computerChoice, humanScore, computerScore) // passing the score variables to increment them in other functions
+        if(result == "win") {
+            alert("You won the round!")
+            humanScore++
+        }
+        else if(result == "lose") {
+            alert("You lost the round!")
+            computerScore++
+        }
+        else {
+            alert("Round resulted in a tie.")
+            // do nothing, it's a tie
+        }
     }
 
     // after the 5 games have been played
@@ -87,7 +99,7 @@ function playGame() {
         alert(`Congratulations! You win the game with a score of ${humanScore} to ${computerScore}.`)
     }
     else if(computerScore > humanScore) {
-        alert(`You lose the game! The computer wins with a score of ${computerScore} to ${humanScore}.`)
+        alert(`You lose the game! The computer wins with a score of ${humanScore} to ${humanScorecomputerScore}.`)
     }
     else {
         alert(`It's a tie! Both you and the computer scored ${humanScore}.`)
