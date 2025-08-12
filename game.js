@@ -74,4 +74,4 @@ function playRound(humanChoice, computerChoice) {
 let humanChoice = getHumanChoice()
 let computerChoice = getComputerChoice()
 
-playRound()
+playRound(humanChoice, computerChoice)
