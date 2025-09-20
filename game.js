@@ -107,4 +107,4 @@ function playGame() {
 }  
 
 
-playGame()
+// playGame()
