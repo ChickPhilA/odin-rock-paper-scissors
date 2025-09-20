@@ -29,8 +29,15 @@ body {
 
 .btn {
     color: white;
+    text-align: center;
     
     padding: 10px;
-    border: 2px solid white;
+    border: 2px ridge white;
     border-radius: 10px;
+}
+
+.results {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
 }
