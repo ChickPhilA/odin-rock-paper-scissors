@@ -20,6 +20,10 @@ body {
 }
 
 .game {
+    
+}
+
+.game-buttons {
     display: flex;
     justify-content: center;
     gap: 50px;
@@ -44,6 +48,12 @@ body {
     cursor: pointer;
     transform: scale(1.5);
     transition-duration: 0.5s;
+}
+
+.selection {
+    // Add the CSS when a selection is made
+
+    /* border: 2px solid white; */
 }
 
 .score {

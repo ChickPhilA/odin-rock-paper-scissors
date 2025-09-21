@@ -1,3 +1,5 @@
+alert("You will play Rock, Paper, Scissors against the computer. First to 5 points wins!")
+
 /* Functions */
 
 function getComputerChoice() {
@@ -38,14 +40,16 @@ function playRound(humanChoice, computerChoice, humanScore, computerScore) {
 
     else if(humanChoice === "paper") {
         console.log("The player chose paper")
-        youChose.textCotent += "Paper"
+        youChose.textContent += "Paper"
     }
     else {
         console.log("The player chose scissors")
         youChose.textContent += "Scissors"
     }
 
-    document.querySelector('body').insertBefore(youChose, document.querySelector('.results'))
+    document.querySelector('.selection').style = "padding: 12px";
+    document.querySelector('.selection').style["margin-bottom"] = "20px";
+    document.querySelector('#you-chose').appendChild(youChose)
 
 }
 

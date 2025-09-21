@@ -17,11 +17,18 @@
 
     <div class="game"> <!-- a container for the rock paper scissors game-->
         <!-- a div will be added here displaying "You chose: (choice)"-->
-        <button id="rock" class="btn"> Rock 🪨 </button>
-        <button id="paper" class="btn"> Paper 📄 </button>
-        <button id="scissors" class="btn"> Scissors ✂️ </button>
+        <div id="round"></div>
+        <div class="game-buttons">
+            <button id="rock" class="btn"> Rock 🪨 </button>
+            <button id="paper" class="btn"> Paper 📄 </button>
+            <button id="scissors" class="btn"> Scissors ✂️ </button>
+        </div>
     </div>
 
+    <div class="selection">
+        <div id="you-chose"> </div> <!-- a div will be added here displaying "You chose: (choice)"-->
+        <div id="computer-chose"> </div> <!-- a div will be added here displaying "The computer chose: (choice)"-->
+    </div>
 
     <div class="score"> <!-- a container for the results of the game-->
         <div id="id-score"> Player Score: </div>
