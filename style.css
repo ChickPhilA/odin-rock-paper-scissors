@@ -30,13 +30,23 @@ body {
 .btn {
     color: white;
     text-align: center;
+    background-color: transparent;
+    transition-duration: 0.5s;
     
     padding: 10px;
     border: 2px ridge white;
     border-radius: 10px;
 }
 
-.results {
+.btn:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transform: scale(1.5);
+    transition-duration: 0.5s;
+}
+
+.score {
     display: flex;
     flex-direction: row;
     gap: 50px;
