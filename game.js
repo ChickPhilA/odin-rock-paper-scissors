@@ -32,18 +32,6 @@ function getComputerChoice() {
     }
 }
 
-// function getHumanChoice() {
-//     let choice = prompt("Enter your choice: 'rock', 'paper', or 'scissors'?")
-//     if(choice === 'rock' || choice === 'paper' || choice === 'scissors') {
-//         choice = choice.toLowerCase() // makes the input case insensitive, accepting any form of input 
-//         return choice
-//     }
-//     else {
-//         alert("Invalid choice. Please try again.")
-//         getHumanChoice()
-//     }
-// }
-
 // This function will sequence a single round but will progress the whole game itself
 function playRound(humanChoice, computerChoice, humanScore, computerScore) {
     let youChose = document.createElement('div')
@@ -68,6 +56,7 @@ function playRound(humanChoice, computerChoice, humanScore, computerScore) {
     document.querySelector('#you-chose').appendChild(youChose)
 
     let cpuIsChoosing = document.createElement('div')
+    let cpuResponse = ""
     cpuIsChoosing.textContent = "The computer is choosing..."
     cpuIsChoosing.style.color = "red"
 
@@ -78,7 +67,10 @@ function playRound(humanChoice, computerChoice, humanScore, computerScore) {
     // This is when the CPU makes a choice
     timeout = setTimeout(() => {
         console.log("CPU generating a response...")
+        cpuResponse = getComputerChoice()
     }, 2000)
+
+
 
 
 
