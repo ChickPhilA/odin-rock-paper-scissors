@@ -50,14 +50,29 @@ body {
     transition-duration: 0.5s;
 }
 
-.selection {
-    // Add the CSS when a selection is made
-
-    /* border: 2px solid white; */
-}
-
 .score {
     display: flex;
     flex-direction: row;
     gap: 50px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.selection {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    margin: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+#you-chose {
+    color: green;
+}
+
+#computer-chose {
+    color: red;
 }

@@ -1,5 +1,21 @@
 alert("You will play Rock, Paper, Scissors against the computer. First to 5 points wins!")
 
+/* DOM Instance Variables and Event Listeners */
+
+const rock = document.getElementById('rock')
+const paper = document.getElementById('paper')
+const scissors = document.getElementById('scissors')
+const playerScore = document.getElementById('id-score')
+const computerScore = document.getElementById('computer-score')
+
+let humanScore = 0;
+let compScore = 0;
+let round = 1;
+
+playerScore.textContent += humanScore
+computerScore.textContent += compScore
+
+
 /* Functions */
 
 function getComputerChoice() {
@@ -16,40 +32,55 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let choice = prompt("Enter your choice: 'rock', 'paper', or 'scissors'?")
-    if(choice === 'rock' || choice === 'paper' || choice === 'scissors') {
-        choice = choice.toLowerCase() // makes the input case insensitive, accepting any form of input 
-        return choice
-    }
-    else {
-        alert("Invalid choice. Please try again.")
-        getHumanChoice()
-    }
-}
+// function getHumanChoice() {
+//     let choice = prompt("Enter your choice: 'rock', 'paper', or 'scissors'?")
+//     if(choice === 'rock' || choice === 'paper' || choice === 'scissors') {
+//         choice = choice.toLowerCase() // makes the input case insensitive, accepting any form of input 
+//         return choice
+//     }
+//     else {
+//         alert("Invalid choice. Please try again.")
+//         getHumanChoice()
+//     }
+// }
 
+// This function will sequence a single round but will progress the whole game itself
 function playRound(humanChoice, computerChoice, humanScore, computerScore) {
     let youChose = document.createElement('div')
     youChose.textContent = `You chose: `
 
     if(humanChoice === "rock") {
         console.log("The player chose rock")
-        youChose.textContent += "Rock"
-
+        youChose.textContent += "🪨"
     }
 
     else if(humanChoice === "paper") {
         console.log("The player chose paper")
-        youChose.textContent += "Paper"
+        youChose.textContent += "📄"
     }
     else {
         console.log("The player chose scissors")
-        youChose.textContent += "Scissors"
+        youChose.textContent += "✂️"
     }
 
-    document.querySelector('.selection').style = "padding: 12px";
-    document.querySelector('.selection').style["margin-bottom"] = "20px";
+    // A sequence of the choices will start here
+
     document.querySelector('#you-chose').appendChild(youChose)
+
+    let cpuIsChoosing = document.createElement('div')
+    cpuIsChoosing.textContent = "The computer is choosing..."
+    cpuIsChoosing.style.color = "red"
+
+    let timeout = setTimeout(() => {
+        document.querySelector('#computer-chose').appendChild(cpuIsChoosing)
+    }, 2000)
+
+    // This is when the CPU makes a choice
+    timeout = setTimeout(() => {
+        console.log("CPU generating a response...")
+    }, 2000)
+
+
 
 }
 
@@ -92,22 +123,6 @@ function playRound(humanChoice, computerChoice, humanScore, computerScore) {
 //     }
 // }  
 
-
-
-
-/* DOM Instance Variables and Event Listeners */
-
-const rock = document.getElementById('rock')
-const paper = document.getElementById('paper')
-const scissors = document.getElementById('scissors')
-const playerScore = document.getElementById('id-score')
-const computerScore = document.getElementById('computer-score')
-
-let humanScore = 0;
-let compScore = 0;
-
-playerScore.textContent += humanScore
-computerScore.textContent += compScore
 
 rock.addEventListener('click', () => playRound("rock", getComputerChoice(), humanScore, compScore))
 paper.addEventListener('click', () => playRound("paper", getComputerChoice(), humanScore, compScore))
