@@ -6,6 +6,9 @@ const scissors = document.getElementById('scissors')
 const playerScore = document.getElementById('id-score')
 const computerScore = document.getElementById('computer-score')
 
+let resultText = document.createElement('div')
+resultText.textContent = `Round ${round} Result: `
+
 let humanScore = 0;
 let compScore = 0;
 let round = 1;
@@ -95,12 +98,17 @@ function playRound(humanChoice, computerChoice) {
     cpuChoice.appendChild(cpu)
 
     let result = determineWinner()
-    let resultText = document.createElement('div')
-    resultText.textContent = `Round ${round} Result: `
 
     if(result == "player") {
-
+        resultText.textContent += "You win this round!"
     }
+    else if(result == "computer") {
+        resultText.textContent += "The computer wins this round!"
+    }
+    else {
+        resultText.textContent += "It's a tie!"
+    }
+    document.querySelector('.selection').appendChild(resultText)
 }
 
 
