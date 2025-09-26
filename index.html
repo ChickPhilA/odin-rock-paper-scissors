@@ -3,16 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock, Paper, Scissors. </title>
+    <title>Rock, Paper, Scissors by Phillipe Manio </title>
+    <link rel="stylesheet" href="style.css"> <!-- This is where our .css file will be linked -->
     <style>
-        .strong {
-            font-weight: bold;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double+Ink:wght@100..900&family=Poetsen+One&family=Viga&display=swap');
     </style>
-    <script src="game.js"> </script> <!-- This is where our .js file will be linked -->
 </head>
 <body>
-    This is the Rock Paper Scissors project of The Odin Project's Javascript foundations curriculum.
-    <div class="strong"> Nothing else will be written on this page. All of the work will be done in the JavaScript console for this project. </div>
+    <div class="title">
+        <div> Rock, Paper, Scissors </div>
+        <div> Phillipe Manio <span style="font-size: 15px; color: goldenrod;">x</span> The Odin Project </div>
+    </div>
+
+    <div id="round-number"> 
+        Round 0/10
+    </div> <!-- a div will be added here displaying the round number-->
+
+    <div class="game"> <!-- a container for the rock paper scissors game-->
+        <!-- a div will be added here displaying "You chose: (choice)"-->
+        <div id="round"></div>
+        <div class="game-buttons">
+            <button id="rock" class="btn"> Rock 🪨 </button>
+            <button id="paper" class="btn"> Paper 📄 </button>
+            <button id="scissors" class="btn"> Scissors ✂️ </button>
+        </div>
+    </div>
+
+    <div class="score"> <!-- a container for the results of the game-->
+        <div id="id-score"> Player Score: </div>
+        <div id="computer-score"> Computer Score: </div>
+    </div>
+
+    <div class="selection">
+        <div id="you-chose"> </div> <!-- a div will be added here displaying "You chose: (choice)"-->
+        <div id="computer-chose"> </div> <!-- a div will be added here displaying "The computer chose: (choice)"-->
+    </div>
+
+    <div id="final-result">
+        <!-- a div will be added here displaying the final result of the game-->
+    </div>
+
+    <script src="game.js"> </script>
 </body>
 </html>
