@@ -137,7 +137,8 @@ function playRound(humanChoice, computerChoice) {
     }
 
     round++
-
+    document.querySelector('.selection').appendChild(resultText)
+    
     // if we've reached the last round, announce the winner of the game
     if(round > 10) {
         annoucneWinner()
