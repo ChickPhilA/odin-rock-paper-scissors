@@ -5,10 +5,18 @@ const paper = document.getElementById('paper')
 const scissors = document.getElementById('scissors')
 const playerScore = document.getElementById('id-score')
 const computerScore = document.getElementById('computer-score')
+const finalResult = document.getElementById('final-result')
 
-let resultText = document.createElement('div')
-resultText.textContent = `Round ${round} Result: `
+let resultText = document.createElement('div') // for displaying the result of each round
 
+let youChose = document.createElement('div') // for displaying what the player chose
+document.querySelector('#you-chose').appendChild(youChose)
+
+let cpu = document.createElement('div') // for displaying what the computer chose
+let cpuChoice = document.getElementById('computer-chose')
+cpuChoice.appendChild(cpu)
+
+// score/round variables
 let humanScore = 0;
 let compScore = 0;
 let round = 1;
@@ -29,11 +37,14 @@ function getComputerChoice() {
         return "paper"
     }
     else {
-        return "scissors" // assuming the random value generated here is 3
+        return "scissors"
     }
 }
 
 function determineWinner(humanChoice, computerChoice) {
+    console.log("Human choice: " + humanChoice)
+    console.log("Computer choice: " + computerChoice)
+
     if(humanChoice === computerChoice) {
         console.log("It's a tie!")
         return "Tie"
@@ -44,6 +55,7 @@ function determineWinner(humanChoice, computerChoice) {
                 console.log("You win this round!")
                 humanScore++
                 playerScore.textContent = "Player Score: " + humanScore
+                
                 return "Player"
             }
     else {
@@ -54,10 +66,30 @@ function determineWinner(humanChoice, computerChoice) {
     }
 }
 
+function annoucneWinner() {
+    if(humanScore === compScore) {
+        finalResult.textContent = "The game is a tie!"
+    }
+    else if(humanScore > compScore) {
+        finalResult.textContent = "Congratulations! You win the game!"
+    }
+    else {
+        finalResult.textContent = "The computer wins the game! Better luck next time!"
+    }
+
+}
+
 // This function will sequence a single round but will progress the whole game itself
 function playRound(humanChoice, computerChoice) {
-    let youChose = document.createElement('div')
-    youChose.textContent = `You chose: `
+    if(round > 10) {
+        return // stops the game after 10 rounds
+    }
+    else {
+        let roundDisplay = document.getElementById('round-number')
+        roundDisplay.textContent = "Round " + round + "/10"
+    }
+
+    youChose.textContent = "You chose: "
 
     if(humanChoice === "rock") {
         console.log("The player chose rock")
@@ -73,12 +105,7 @@ function playRound(humanChoice, computerChoice) {
         youChose.textContent += "✂️"
     }
 
-    // A sequence of the choices will start here
-
-    document.querySelector('#you-chose').appendChild(youChose)
-
-    let cpu = document.createElement('div')
-    let cpuChoice = document.getElementById('computer-chose')
+    let cpuResponse = ""
 
     if(computerChoice === "rock") {
         console.log("The CPU chose rock")
@@ -94,21 +121,27 @@ function playRound(humanChoice, computerChoice) {
         cpuResponse = "✂️"
     }
 
-    cpu.textContent = "The CPU has chosen " + cpuResponse
-    cpuChoice.appendChild(cpu)
+    cpu.textContent = "The CPU has chosen: " + cpuResponse
 
-    let result = determineWinner()
+    let result = determineWinner(humanChoice, computerChoice)
+    resultText.textContent = `Round ${round} Result: `
 
-    if(result == "player") {
+    if(result == "Player") {
         resultText.textContent += "You win this round!"
     }
-    else if(result == "computer") {
+    else if(result == "Computer") {
         resultText.textContent += "The computer wins this round!"
     }
     else {
         resultText.textContent += "It's a tie!"
     }
-    document.querySelector('.selection').appendChild(resultText)
+
+    round++
+
+    // if we've reached the last round, announce the winner of the game
+    if(round > 10) {
+        annoucneWinner()
+    }
 }
 
 

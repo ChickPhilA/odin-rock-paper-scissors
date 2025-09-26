@@ -19,8 +19,11 @@ body {
     font-size: 20px;
 }
 
-.game {
-    
+#round-number {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    font-size: 24px;
 }
 
 .game-buttons {
@@ -75,4 +78,10 @@ body {
 
 #computer-chose {
     color: red;
+}
+
+#final-result {
+    color: gold;
+    font-size: 30px;
+    margin-top: 20px;
 }
