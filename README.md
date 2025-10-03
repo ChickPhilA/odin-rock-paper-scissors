@@ -4,3 +4,5 @@ UPDATE (10/3/2025): Added a tie score to the game to track how many rounds have 
 
 Link to game: https://chickphila.github.io/odin-rock-paper-scissors/
 (You might need to zoom in, I apologize if the text is small)
+
+testing
