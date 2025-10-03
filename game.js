@@ -5,6 +5,7 @@ const paper = document.getElementById('paper')
 const scissors = document.getElementById('scissors')
 const playerScore = document.getElementById('id-score')
 const computerScore = document.getElementById('computer-score')
+const tieScoreDisplay = document.getElementById('tie-score')
 const finalResult = document.getElementById('final-result')
 
 let resultText = document.createElement('div') // for displaying the result of each round
@@ -19,10 +20,12 @@ cpuChoice.appendChild(cpu)
 // score/round variables
 let humanScore = 0;
 let compScore = 0;
+let tieScore = 0; 
 let round = 1;
 
 playerScore.textContent += humanScore
 computerScore.textContent += compScore
+tieScoreDisplay.textContent += tieScore
 
 
 /* Functions */
@@ -47,6 +50,8 @@ function determineWinner(humanChoice, computerChoice) {
 
     if(humanChoice === computerChoice) {
         console.log("It's a tie!")
+        tieScore++
+        tieScoreDisplay.textContent = "Ties: " + tieScore
         return "Tie"
     }
     else if(humanChoice === "rock" && computerChoice === "scissors" ||
